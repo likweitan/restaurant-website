@@ -92,7 +92,9 @@
       <th scope="col">Contact Number</th>
       <th scope="col">Booking Date</th>
       <th scope="col">Booking Time</th>
+      <th scope="col">Amount of People</th>
       <th scope="col">Booking Status</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -117,6 +119,7 @@
             echo "<td>";
             echo $row['booking_time'];
             echo "</td>";
+            echo "<td>";
             echo $row['numberPerson'];
             echo "</td>";
             echo "<td><a href='viewbooking.php?booking_id=";
