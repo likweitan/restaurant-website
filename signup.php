@@ -152,13 +152,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <input type="password" name="confirm_password" id="re_pass" placeholder="Repeat your password"/<?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
                             </div>
-        <!---->
                             <div class="form-group">
                                 <label for="fullname"><i class="fullname"></i></label>
                                 <input type="text" name="fullname" id="fullname" placeholder="Full name"/<?php echo (!empty($fullname_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $fullname; ?>">
                 <span class="invalid-feedback"><?php echo $fullname_err; ?></span>
                             </div>
-        <!---->
                                 <a href="login.php" class="signup-image-link" style="text-align: left">I already have an account</a>
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
