@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2021 at 12:20 PM
+-- Generation Time: Apr 10, 2021 at 03:50 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -35,6 +35,7 @@ CREATE TABLE `bookingform` (
   `booking_date` date NOT NULL,
   `booking_time` time NOT NULL,
   `numberPerson` int(11) NOT NULL,
+  `booking_stauts` varchar(15) NOT NULL DEFAULT 'pending',
   `booking_create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -42,10 +43,14 @@ CREATE TABLE `bookingform` (
 -- Dumping data for table `bookingform`
 --
 
-INSERT INTO `bookingform` (`booking_id`, `user_id`, `booking_fullname`, `booking_contact`, `booking_date`, `booking_time`, `numberPerson`, `booking_create_at`) VALUES
-(1, 1, 'YAM ZHENG LIM', '0129747749', '2021-04-10', '17:16:15', 2, '2021-04-10 18:19:18'),
-(2, 1, 'YAM ZHENG LIM', '0129747749', '2021-04-16', '18:12:00', 3, '2021-04-10 18:19:18'),
-(3, 1, 'Zheng lim yam', '0129999999', '1213-01-11', '15:12:00', 3, '2021-04-10 18:20:03');
+INSERT INTO `bookingform` (`booking_id`, `user_id`, `booking_fullname`, `booking_contact`, `booking_date`, `booking_time`, `numberPerson`, `booking_stauts`, `booking_create_at`) VALUES
+(1, 1, 'YAM ZHENG LIM', '0129747749', '2021-04-10', '17:16:15', 2, 'pending', '2021-04-10 18:19:18'),
+(2, 1, 'YAM ZHENG LIM', '0129747749', '2021-04-16', '18:12:00', 3, 'pending', '2021-04-10 18:19:18'),
+(3, 1, 'Zheng lim yam', '0129999999', '1213-01-11', '15:12:00', 3, 'pending', '2021-04-10 18:20:03'),
+(4, 8, 'yam zheng lim', '0129747749', '2021-04-15', '00:00:00', 0, 'pending', '2021-04-10 21:26:54'),
+(5, 8, 'yam zheng lim', 'ewqe', '0000-00-00', '00:00:00', 0, 'pending', '2021-04-10 21:27:16'),
+(6, 8, 'yam zheng lim', '', '0000-00-00', '00:00:00', 0, 'pending', '2021-04-10 21:41:18'),
+(7, 8, 'yam zheng lim', '', '0000-00-00', '00:00:00', 0, 'pending', '2021-04-10 21:45:50');
 
 -- --------------------------------------------------------
 
@@ -72,7 +77,8 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `user_fullname`, `role`,
 (4, 'admin', '$2y$10$hZ5SbIX.jIRqqGYuVgxw3.ZCm0NNZp3MnWk3o3bl3QoanlFwIDDFu', '0', 'admin', '2021-04-10 11:19:15'),
 (5, '', '$2y$10$QyB1bcK66m1m4upoQkt7UOypoVsoQSEWg3ccSd5z9zoj1PIXvhRXm', '', 'user', '2021-04-10 17:26:34'),
 (6, 'zhenglim123', '$2y$10$T6YfynkhMh8OHt6xqK8cl.2/FyPohvTAhOrmDcvjzzfFa5HG/m02O', '', 'user', '2021-04-10 17:29:44'),
-(7, 'ZHENGLIM111111', '$2y$10$6AaFSt.gGaIjpfiAco.pcObofyHjQ6ojTOT6tUT1dRGFqsWB2F8oG', 'aassv cc', 'user', '2021-04-10 18:16:33');
+(7, 'ZHENGLIM111111', '$2y$10$6AaFSt.gGaIjpfiAco.pcObofyHjQ6ojTOT6tUT1dRGFqsWB2F8oG', 'aassv cc', 'user', '2021-04-10 18:16:33'),
+(8, 'yamzhenglim', '$2y$10$AxNdqwnLvnB3cpo5clpsk.eDd5/nD95IK70IxWb7LB02Mby7KmUFq', 'yam zheng lim', 'user', '2021-04-10 21:26:26');
 
 --
 -- Indexes for dumped tables
@@ -100,13 +106,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookingform`
 --
 ALTER TABLE `bookingform`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

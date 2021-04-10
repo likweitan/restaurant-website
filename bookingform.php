@@ -121,7 +121,7 @@
                 </div>
             </div>
         
-            
+              <!--            
               <script type="text/javascript">
                $(function () {
                  $('#datetimepicker1').datetimepicker({
@@ -129,6 +129,7 @@
                   });
                });
              </script>
+              -->
          </div>
          
             <div class="col-sm-4 col-md-6 form-group mt-3 mt-md-0 ">   
