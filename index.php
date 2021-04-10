@@ -3,11 +3,11 @@ require("config.php");
 // Initialize the session
 session_start();
 
-if(isset($_SESSION['username']))
+if(isset($_SESSION['id']))
 {
     $sql = "SELECT *
             FROM users
-            WHERE username =".$_SESSION['username'];
+            WHERE user_id =".$_SESSION['id'];
     $query = mysqli_query($link,$sql);
     if($query)
     {
