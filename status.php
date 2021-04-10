@@ -64,11 +64,11 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="welcome.php">Home</a></li>
+          <li><a class="nav-link scrollto" href="welcome.php">Home</a></li>
           <li><a class="nav-link scrollto" href="welcome.php">Menu</a></li>
           <li><a class="nav-link scrollto" href="welcome.php">Gallery</a></li>
           <li><a class="nav-link scrollto" href="welcome.php">Contact</a></li>
-		  <li><a class="nav-link scrollto" href="status.php">Status</a></li>
+		  <li><a class="nav-link scrollto active" href="status.php">Status</a></li>
 		  <li><a class="nav-link scrollto" href="logout.php">Log Out</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
