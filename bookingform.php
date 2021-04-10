@@ -1,4 +1,23 @@
+<?php
+  require("config.php");
+  // Initialize the session
+  session_start();
+  if(isset($_SESSION['id']))
+  {
+      $sql = "SELECT *
+              FROM users
+              WHERE user_id =".$_SESSION['id'];
+      $query = mysqli_query($link,$sql);
+      if($query)
+      {
+          while($row = mysqli_fetch_array($query))
+          {
+              $user_fullname = $row['user_fullname'];
+          }
+      }
+  }
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +97,7 @@
         <form action="booking.inc.php" method="POST" role="form" class="php-email-form">
           <div class="row">
             <div class="col-sm-4 col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="<?php echo $user_fullname; ?>" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>
            
