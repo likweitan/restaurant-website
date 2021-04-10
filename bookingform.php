@@ -75,7 +75,7 @@
           <p></p>
         </div>
         <?php require_once 'config.php'; ?>
-        <form action="config.php" method="POST" role="form" class="php-email-form">
+        <form action="booking.inc.php" method="POST" role="form" class="php-email-form">
           <div class="row">
             <div class="col-sm-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
