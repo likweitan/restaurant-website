@@ -1,4 +1,14 @@
-
+<?php
+  require("config.php");
+  session_start();
+    if(isset($_SESSION['id']))
+    {
+        $sql = "SELECT * FROM bookingform
+        WHERE user_id =".$_SESSION['id']." AND booking_date >= DATE(CURRENT_TIMESTAMP())
+        ORDER BY booking_create_at DESC";
+        $query = mysqli_query($link,$sql);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +84,51 @@
       <div class="container">
       </div>
   </section>
-  asdas
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Booking Date</th>
+      <th scope="col">Booking Time</th>
+      <th scope="col">Booking Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php  
+
+  while($row = mysqli_fetch_array($query))
+  {
+    echo "
+        <tr>
+            <td>";
+            echo $row['booking_id'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['booking_fullname'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['booking_contact'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['booking_date'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['booking_time'];
+            echo "</td>";
+            echo $row['numberPerson'];
+            echo "</td>";
+            echo "<td><a href='viewbooking.php?booking_id=";
+            echo $row['booking_id'];
+            echo "'>";
+            echo $row['booking_status'];
+            echo "</a></td>";
+        echo '</tr>';
+}
+?>
+  </tbody>
+</table>
     <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
