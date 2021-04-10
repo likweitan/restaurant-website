@@ -3,8 +3,9 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
+$username = $password = $confirm_password = $fullname = "";
+$username_err = $password_err = $confirm_password_err = $fullname_err = "";
+
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -17,9 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(strpos($_POST["username"], " ") !== false)
         {
             $username_err = "Please username without space.";
-        }
-
-        else{
+        }else{
             // Prepare a select statement
             $sql = "SELECT user_id FROM users WHERE username = ?";
             
@@ -68,18 +67,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = "Password did not match.";
         }
     }
+
+    if(empty(trim($_POST["fullname"]))){
+        $fullname_err = "Please enter you full name.";
+    } else{
+        $fullname = trim($_POST["fullname"]);
+    }
+    
     
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($fullname_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO users (username, password, user_fullname) VALUES (?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password, $param_fullname);
             
             // Set parameters
+            $param_fullname = $fullname;
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             
@@ -144,6 +151,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <input type="password" name="confirm_password" id="re_pass" placeholder="Repeat your password"/<?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
                             </div>
+        <!---->
+                            <div class="form-group">
+                                <label for="fullname"><i class="fullname"></i></label>
+                                <input type="text" name="fullname" id="fullname" placeholder="Full name"/<?php echo (!empty($fullname_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $fullname; ?>">
+                <span class="invalid-feedback"><?php echo $fullname_err; ?></span>
+                            </div>
+        <!---->
                                 <a href="login.php" class="signup-image-link" style="text-align: left">I already have an account</a>
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
