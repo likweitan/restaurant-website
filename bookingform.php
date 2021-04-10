@@ -148,12 +148,20 @@
                  </select>
                 </div>
             </div>
-         
-          <div class="mb-3">           
+            <div class="mb-3">           
             <div class="loading">Loading</div>
             <div class="error-message">There is an error</div>
             <div class="sent-message">Your booking request was sent.Please check the status page to confirm your reservation. Thank you!</div>
-          </div>
+          
+            <?php
+              if(isset($_GET["error"])){
+              if($_GET["error"]=='failed') {
+                  echo '<div class="error-message d-block">There is an error</div>';
+              }
+
+            }
+            ?>
+            </div>
           <div class="text-center"><button type="submit" name="savecont">Send Message</button></div>
         </form>
       </div>
@@ -179,7 +187,7 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!--<script src="assets/vendor/php-email-form/validate.js"></script>-->
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Template Main JS File -->

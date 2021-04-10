@@ -15,7 +15,13 @@
     $insertBooking =  mysqli_query($link,"INSERT INTO bookingform (user_id,booking_fullname,booking_contact,booking_date,booking_time,numberPerson)
     VALUES('$user_id','$booking_fullname','$booking_contact', '$booking_date', '$booking_time', '$numberPerson')");
 
-    echo $insertBooking
+    #echo $insertBooking
+    if($insertBooking){
+        header("location: status.php");
+    }
+    else{
+        header("location: bookingform.php?error=failed");
+    }
 ?>
 </body>
 </html>
