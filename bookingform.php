@@ -156,7 +156,7 @@
           
             <?php
               if(isset($_GET["error"])){
-              if($_GET["error"]=='failed') {
+              if($_GET["error"]=='1') {
                   echo '<div class="error-message d-block">Please fill in with correct details. Thank you.</div>';
               }
 
