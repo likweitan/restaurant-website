@@ -43,7 +43,7 @@
 
 
     }else{
-        echo "error";
+        header("location: bookingform.php?error=failed");
     }
     
 

@@ -135,7 +135,7 @@
             <div class="col-sm-4 col-md-6 form-group mt-3 mt-md-0 ">   
              <div class="form-group" "select-dropdown">			
 				        <select type='people ' class="form-control" name="num_people" id="num_people" placeholder="Amount of People">
-                     <option disabled="disabled" selected="selected">Amount of People</option>
+                     <option selected="selected">Amount of People</option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -157,7 +157,7 @@
             <?php
               if(isset($_GET["error"])){
               if($_GET["error"]=='failed') {
-                  echo '<div class="error-message d-block">There is an error</div>';
+                  echo '<div class="error-message d-block">Please fill in with correct details. Thank you.</div>';
               }
 
             }
