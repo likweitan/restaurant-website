@@ -24,7 +24,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 else if($myRole == 'admin'){
-    header("location: admin.php");
+    header("location: admin/index.php");
 }
 else{
     header("location: welcome.php");
