@@ -52,18 +52,19 @@
 </head>
 
 <body>
+  
 
   <!-- ======= Top Bar ======= -->
 
-  <section id="topbar" class="d-flex align-items-center fixed-top">
+  <section id="topbar" class="d-flex align-items-center fixed-top" >
 
-      <div class="logo me-auto">
-        <h1><a href="bookingform.php">Book A Table</a></h1>
+      <div class="logo me-auto" style="margin-left: 5em ;margin-top: 1em">
+        <h1><a href="bookingform.php" style="font-size: 0.8em;">Book A Table</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
+      <nav id="navbar" class="navbar order-last order-lg-0" >
         <ul>
           <li><a class="nav-link scrollto active" href="welcome.php">Home</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
@@ -75,7 +76,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="bookingform.php" class="book-a-table-btn scrollto">Book a table</a>
+      <a href="bookingform.php" class="book-a-table-btn scrollto" style="margin-right:4em;">Book a table</a>
 
     </div>
 
