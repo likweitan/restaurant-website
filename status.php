@@ -68,8 +68,13 @@
 
     </div>
   </header><!-- End Header -->
-  
-  
+  <!-- Content -->
+
+  <section id="book-a-table" class="book-a-table" style="background-color: #35322d">
+      <div class="container">
+      </div>
+  </section>
+  asdas
     <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
@@ -82,7 +87,7 @@
      
     </div>
   </footer><!-- End Footer -->
-
+  
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
