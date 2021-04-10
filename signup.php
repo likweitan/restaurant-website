@@ -123,7 +123,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <form method="POST" class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="name"></i></label>
-                                <input type="text" name="username" id="name" placeholder="Your Name"/<?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                                <input type="text" name="username" id="name" placeholder="Username"/<?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
                             </div>
                             <div class="form-group">
