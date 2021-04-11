@@ -1,11 +1,27 @@
 <?php
 // Initialize the session
+require('config.php');
 session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
+}
+
+if(isset($_SESSION['id']))
+{
+    $sql = "SELECT *
+            FROM users
+            WHERE user_id =".$_SESSION['id'];
+    $query = mysqli_query($link,$sql);
+    if($query)
+    {
+        while($row = mysqli_fetch_array($query))
+        {
+            $myRole = $row['role'];
+        }
+    }
 }
 ?>
 
@@ -47,7 +63,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start justify-content-between ">
       <i class="bi bi-phone d-flex align-items-center "><span>+06-603 0565</span></i>
       <i class="bi bi-clock ms-4 d-lg-flex align-items-center me-auto"><span>Tue-Sun: 10:00 AM - 22:00 PM</span></i>
-      <a  class = "book-a-table-btn bi ms-4 d-lg-flex d-none" href="index.php" style="background: #DC143C;" >go admin</a>
+      <?php if($myRole=='admin'){echo '<a  class = "book-a-table-btn bi ms-4 d-lg-flex d-none" href="index.php" style="background: #DC143C;" >go admin</a>';}?>
     </div>
   </section>
   <!-- style="position: absolute; right: 5.5em;" -->
