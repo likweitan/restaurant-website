@@ -42,14 +42,17 @@
       }
     </style>
 
-    
+
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
+
+    <!-- font import -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
   </head>
   <body>
     
 <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color:rgba(26, 24, 22, 0.8)">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">The Muffin House</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style ="font-family: 'Satisfy', sans-serif; font-size: 1.5em;" href="#">The Muffin House</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
