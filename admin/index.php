@@ -54,7 +54,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div style=>
+  <div style="display: flex;">
 
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
