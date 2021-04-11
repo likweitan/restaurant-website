@@ -47,7 +47,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start justify-content-between ">
       <i class="bi bi-phone d-flex align-items-center "><span>+06-603 0565</span></i>
       <i class="bi bi-clock ms-4 d-lg-flex align-items-center me-auto"><span>Tue-Sun: 10:00 AM - 22:00 PM</span></i>
-      <button class = "book-a-table-btn bi ms-4 d-lg-flex d-none " >go admin</button>
+      <button class = "book-a-table-btn bi ms-4 d-lg-flex d-none" style="background: #DC143C;" >go admin</button>
     </div>
   </section>
   <!-- style="position: absolute; right: 5.5em;" -->
