@@ -46,9 +46,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
       <i class="bi bi-phone d-flex align-items-center"><span>+06-603 0565</span></i>
-      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Tue-Sun: 10:00 AM - 22:00 PM</span></i>
-	  
-
+      <i class="bi bi-clock ms-4 d-lg-flex align-items-center"><span>Tue-Sun: 10:00 AM - 22:00 PM</span></i>
+      <!--<button class = "book-a-table-btn" style="margin-left: 53%" >go admin</button>-->
     </div>
   </section>
 
@@ -57,7 +56,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div class="logo me-auto">
-        <h1><a href="welcome.php">The Muffin House</a></h1>
+        <h1><a href="welcome.php" style="font-size: 0.7em;">The Muffin House</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
