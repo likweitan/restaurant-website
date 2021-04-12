@@ -104,7 +104,6 @@
       <th scope="col">Amount of People</th>
       <th scope="col">Booking Status</th>
       <th scope="col">Actions</th>
-      <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -135,22 +134,29 @@ while($row = mysqli_fetch_array($query))
           echo "<td>";
           echo $row['booking_status'];
           echo "</td>";
-          echo "<td>";
-          echo '<form action="approve_booking.php" method="get">';
-          echo '<input hidden type="text" name="booking_id" value=';
-          echo $row['booking_id'];
-          echo '>';
-          echo "<button type='submit' class='btn btn-primary' style='font-size: 12px;'>";
-          echo "Approve</button>";
-          echo "</form>";
-          echo "</td>";
-          echo "<td>";
-          echo '<form action="cancel_booking.php" method="get">';
-          echo '<input hidden type="text" name="booking_id" value=';
-          echo $row['booking_id'];
-          echo '>';
-          echo "<button type='submit' class='btn btn-danger' style='font-size: 12px;'>";
-          echo "Cancel</button>";
+          
+          if($row['booking_status']=='cancelled')
+          {
+            echo "<td>";
+            echo '<form action="approve_booking.php" method="get">';
+            echo '<input hidden type="text" name="booking_id" value=';
+            echo $row['booking_id'];
+            echo '>';
+            echo "<button type='submit' class='btn btn-primary' style='font-size: 12px; width: 75px'>";
+            echo "Approve</button>";
+            echo "</form>";
+            echo "</td>";
+          }
+          else
+          {
+            echo "<td>";
+            echo '<form action="cancel_booking.php" method="get">';
+            echo '<input hidden type="text" name="booking_id" value=';
+            echo $row['booking_id'];
+            echo '>';
+            echo "<button type='submit' class='btn btn-danger' style='font-size: 12px; width: 75px'>";
+            echo "Cancel</button>";
+          }
           echo "</form>";
           echo "</td>";
       echo '</tr>';
