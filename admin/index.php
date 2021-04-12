@@ -85,13 +85,6 @@
               Bookings
             </a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Customers
-            </a>
-          </li>
       </div>
     </nav>
 
@@ -110,6 +103,8 @@
       <th scope="col">Booking Time</th>
       <th scope="col">Amount of People</th>
       <th scope="col">Booking Status</th>
+      <th scope="col">Actions</th>
+      <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -137,11 +132,27 @@ while($row = mysqli_fetch_array($query))
           echo "<td>";
           echo $row['numberPerson'];
           echo "</td>";
-          echo "<td><a href='viewbooking.php?booking_id=";
-          echo $row['booking_id'];
-          echo "'>";
+          echo "<td>";
           echo $row['booking_status'];
-          echo "</a></td>";
+          echo "</td>";
+          echo "<td>";
+          echo '<form action="approve_booking.php" method="get">';
+          echo '<input hidden type="text" name="booking_id" value=';
+          echo $row['booking_id'];
+          echo '>';
+          echo "<button type='submit' class='btn btn-primary' style='font-size: 12px;'>";
+          echo "Approve</button>";
+          echo "</form>";
+          echo "</td>";
+          echo "<td>";
+          echo '<form action="cancel_booking.php" method="get">';
+          echo '<input hidden type="text" name="booking_id" value=';
+          echo $row['booking_id'];
+          echo '>';
+          echo "<button type='submit' class='btn btn-danger' style='font-size: 12px;'>";
+          echo "Cancel</button>";
+          echo "</form>";
+          echo "</td>";
       echo '</tr>';
 }
 ?>
