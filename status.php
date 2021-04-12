@@ -132,14 +132,20 @@
             echo "'>";
             echo $row['booking_status'];
             echo "</a>";
-            echo "<td><a href='cancel_booking.php?booking_id=";
-            echo $row['booking_id'];
-            echo "'>";
+            echo "<td>";
             if($row['booking_status'] != 'cancelled')
             {
-              echo 'X';
+            echo '<form action="cancel_booking.php" method="get">';
+            echo '<input hidden type="text" name="booking_id" value=';
+            echo $row['booking_id'];
+            echo '>';
+            echo "<button type='submit' class='btn btn-danger' style='font-size: 12px;'>";
+            echo "Cancel</button>";
+            echo "</form>";
             }
-            echo "</a>";
+            else{
+              echo "";
+            }
             echo "</td>";
         echo '</tr>';
 }
