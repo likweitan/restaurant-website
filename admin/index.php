@@ -4,7 +4,8 @@
     if(isset($_SESSION['id']))
     {
         $sql = "SELECT * FROM bookingform
-        ORDER BY booking_create_at DESC";
+                #WHERE booking_date >= DATE(CURRENT_TIMESTAMP())
+                ORDER BY booking_create_at DESC";
         $query = mysqli_query($link,$sql);
     }
 ?>
@@ -42,6 +43,9 @@
       }
     </style>
 
+    <!--Calendar CSS & JS -->
+    <link href="calendar.css" rel="stylesheet">
+    <script src="calendar.js"></script>
 
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
@@ -89,7 +93,27 @@
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      
+        <!--calender test start -->
+        
+        <div id="cal-wrap">
+          <!-- [PERIOD SELECTOR] -->
+          <div id="cal-date">
+            <select id="cal-mth"></select>
+            <select id="cal-yr"></select>
+            <input id="cal-set" type="button" value="SET"/>
+          </div>
+
+          <!-- [CALENDAR] -->
+          <div id="cal-container"></div>
+
+          <!-- [EVENT] -->
+          <div id="cal-event"></div>
+        </div>
+
+        <!--calender test end -->
+      
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">   
         <h1 class="h2">Bookings</h1>
       </div>
       <div class="table-responsive">
