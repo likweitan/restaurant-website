@@ -89,7 +89,9 @@
       <div class="container">
       </div>
   </section>
-  <table class="table" style="margin-top: 5em;">
+  <div class="container">
+
+  <table class="table table-responsive" style="margin-top: 5em;">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -152,6 +154,8 @@
 ?>
   </tbody>
 </table>
+
+</div>
 
 <!-- ALREADY PASS TABLE -->
 <section id="book-a-table" class="book-a-table" style="background-color: #35322d">
