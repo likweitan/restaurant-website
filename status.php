@@ -7,6 +7,11 @@
         WHERE user_id =".$_SESSION['id']." AND booking_date >= DATE(CURRENT_TIMESTAMP())
         ORDER BY booking_create_at DESC";
         $query = mysqli_query($link,$sql);
+
+        $sql_pass = "SELECT * FROM bookingform
+        WHERE user_id =".$_SESSION['id']." AND booking_date <= DATE(CURRENT_TIMESTAMP())
+        ORDER BY booking_create_at DESC";
+        $query_pass = mysqli_query($link,$sql_pass);      
     }
 ?>
 <!DOCTYPE html>
@@ -126,12 +131,71 @@
             echo $row['booking_id'];
             echo "'>";
             echo $row['booking_status'];
+            echo "</a>";
+            echo "<button class='book-a-table-btn bi d-lg-flex d-none' style='background: #DC143C;padding: 0px 5px;'>X</button>";
+            echo "</td>";
+        echo '</tr>';
+}
+?>
+  </tbody>
+</table>
+
+<!-- ALREADY PASS TABLE -->
+<section id="book-a-table" class="book-a-table" style="background-color: #35322d">
+      <div class="container">
+      </div>
+  </section>
+  <table class="table" style="margin-top: 5em;">
+    <a>Already Pass</a>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Booking Date</th>
+      <th scope="col">Booking Time</th>
+      <th scope="col">Amount of People</th>
+      <th scope="col">Booking Status</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  <?php  
+
+  while($row = mysqli_fetch_array($query_pass))
+  {
+    echo "
+        <tr>
+            <td>";
+            echo $row['booking_id'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['booking_fullname'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['booking_contact'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['booking_date'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['booking_time'];
+            echo "</td>";
+            echo "<td>";
+            echo $row['numberPerson'];
+            echo "</td>";
+            echo "<td><a href='viewbooking.php?booking_id=";
+            echo $row['booking_id'];
+            echo "'>";
+            echo $row['booking_status'];
             echo "</a></td>";
         echo '</tr>';
 }
 ?>
   </tbody>
 </table>
+
+
     <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
