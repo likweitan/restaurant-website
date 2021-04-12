@@ -99,7 +99,7 @@
       <th scope="col">Booking Time</th>
       <th scope="col">Amount of People</th>
       <th scope="col">Booking Status</th>
-      
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -132,7 +132,14 @@
             echo "'>";
             echo $row['booking_status'];
             echo "</a>";
-            echo "<button class='book-a-table-btn bi d-lg-flex d-none' style='background: #DC143C;padding: 0px 5px;'>X</button>";
+            echo "<td><a href='cancel_booking.php?booking_id=";
+            echo $row['booking_id'];
+            echo "'>";
+            if($row['booking_status'] != 'cancelled')
+            {
+              echo 'X';
+            }
+            echo "</a>";
             echo "</td>";
         echo '</tr>';
 }
