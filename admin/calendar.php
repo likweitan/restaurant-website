@@ -73,15 +73,15 @@
               if($date==$row['booking_date']){
                 $week .= '<br><h4 style="text-align: center; color:red">';
                 $week .= $row["count"];
-                $week .= ' Approved</h4>';
+                $week .= ' </h4>';
               }
             }
             while($row = mysqli_fetch_array($query_pending))
             {
               if($date==$row['booking_date']){
-                $week .= '<br><h4 style="text-align: center; color:blue">';
+                $week .= '<h4 style="text-align: center; color:blue">';
                 $week .= $row["count"];
-                $week .= ' Cancelled</h4>';
+                $week .= ' </h4>';
               }
             }
       }
