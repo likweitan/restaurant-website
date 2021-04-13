@@ -3,8 +3,8 @@
   session_start();
     if(isset($_SESSION['id']))
     {
-        $sql = "SELECT COUNT(booking_id) FROM bookingform
-                GROUP BY booking_date"
+        $sql = "SELECT COUNT(booking_id), booking_date FROM bookingform
+                GROUP BY booking_date";
         $query = mysqli_query($link,$sql);
     };
 
