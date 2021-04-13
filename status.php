@@ -92,9 +92,8 @@
   <br>
   <div class="container">
   <h2>Recent Bookings</h2>
-  <?php  
-  $row = mysqli_fetch_array($query);
-  if($row){
+  <?php 
+  if($query->num_rows > 0){
   echo '
   <table class="table table-responsive" style="margin-top: 2em;">
   <thead>
@@ -111,7 +110,7 @@
   </thead>
   <tbody>';
 
-  while($row)
+  while($row = mysqli_fetch_array($query))
   {
     echo "
         <tr>
@@ -167,9 +166,8 @@
 </div>
 
 <!-- ALREADY PASS TABLE -->
-<?php  
-$row = mysqli_fetch_array($query_pass);
-if($row){
+<?php
+if($query_pass->num_rows > 0){
   echo '<section id="book-a-table" class="book-a-table" style="background-color: #35322d">
       <div class="container">
       
@@ -194,11 +192,11 @@ if($row){
       </tr>
     </thead>
     <tbody>';
-}
+
   
 
 
-  while($row)
+  while($row = mysqli_fetch_array($query_pass))
   {
     echo "
         <tr>
@@ -228,7 +226,6 @@ if($row){
         echo '</tr>';
 }
 
-if($row){
   echo '</tbody>
   </table>';
 }
