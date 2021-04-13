@@ -1,12 +1,8 @@
 <?php
   require("../config.php");
   session_start();
-    if(isset($_SESSION['id']))
-    {
-        $sql = "SELECT COUNT(booking_id), booking_date FROM bookingform
-                GROUP BY booking_date";
-        $query = mysqli_query($link,$sql);
-    };
+    
+
 
     //calendar PHP
     // Set your timezone
@@ -28,6 +24,7 @@
     }
     
     // Today
+    
     $today = date('Y-m-j', time());
     
     // For H3 title
@@ -42,7 +39,7 @@
     
     // Number of days in the month
     $day_count = date('t', $timestamp);
-     
+    
     // 0:Sun 1:Mon 2:Tue ...
     $str = date('w', mktime(0, 0, 0, date('m', $timestamp), 1, date('Y', $timestamp)));
     //$str = date('w', $timestamp);
@@ -56,14 +53,26 @@
     $week .= str_repeat('<td></td>', $str);
     
     for ( $day = 1; $day <= $day_count; $day++, $str++) {
-         
-        $date = $ym . '-' . $day;
-         
+
+      $date = $ym . '-' . $day;
+      $sql = "SELECT booking_date,COUNT(booking_id) AS count FROM `bookingform`
+      GROUP BY booking_date";
+      $query = mysqli_query($link,$sql);
+
         if ($today == $date) {
             $week .= '<td class="today">' . $day;
+
         } else {
             $week .= '<td>' . $day;
-        }
+            while($row = mysqli_fetch_array($query))
+            {
+            if($date==$row['booking_date']){
+              $week .= '<br><h2>';
+              $week .= $row["count"];
+              $week .= '</h2>';
+          }
+      }
+      }
         $week .= '</td>';
          
         // End of the week OR End of the month
@@ -79,9 +88,8 @@
             // Prepare for new week
             $week = '';
         }
-    
     }
-    
+
 ?>
 
 <!doctype html>
