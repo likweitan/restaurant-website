@@ -4,8 +4,7 @@
     if(isset($_SESSION['id']))
     {
         $sql = "SELECT * FROM bookingform
-                #WHERE booking_date >= DATE(CURRENT_TIMESTAMP())
-                ORDER BY booking_create_at DESC";
+                GROUP BY booking_date"
         $query = mysqli_query($link,$sql);
     };
 
