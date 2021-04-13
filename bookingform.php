@@ -66,7 +66,7 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0" >
         <ul>
-          <li><a class="nav-link scrollto active" href="welcome.php">Home</a></li>
+          <li><a class="nav-link scrollto" href="welcome.php">Home</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
