@@ -55,23 +55,35 @@
     for ( $day = 1; $day <= $day_count; $day++, $str++) {
 
       $date = $ym . '-' . $day;
-      $sql = "SELECT booking_date,COUNT(booking_id) AS count FROM `bookingform`
+      $sql = "SELECT booking_date,COUNT(booking_id) AS count FROM `bookingform` WHERE booking_status='approved'
       GROUP BY booking_date";
-      $query = mysqli_query($link,$sql);
+      $query_approved = mysqli_query($link,$sql);
+
+      $sql = "SELECT booking_date,COUNT(booking_id) AS count FROM `bookingform` WHERE booking_status='pending'
+      GROUP BY booking_date";
+      $query_pending = mysqli_query($link,$sql);
 
         if ($today == $date) {
             $week .= '<td class="today">' . $day;
 
         } else {
             $week .= '<td>' . $day;
-            while($row = mysqli_fetch_array($query))
+            while($row = mysqli_fetch_array($query_approved))
             {
-            if($date==$row['booking_date']){
-              $week .= '<br><h2 style="text-align: center; color:red">';
-              $week .= $row["count"];
-              $week .= '</h2>';
-          }
-      }
+              if($date==$row['booking_date']){
+                $week .= '<br><h4 style="text-align: center; color:red">';
+                $week .= $row["count"];
+                $week .= ' Approved</h4>';
+              }
+            }
+            while($row = mysqli_fetch_array($query_pending))
+            {
+              if($date==$row['booking_date']){
+                $week .= '<br><h4 style="text-align: center; color:blue">';
+                $week .= $row["count"];
+                $week .= ' Cancelled</h4>';
+              }
+            }
       }
         $week .= '</td>';
          
