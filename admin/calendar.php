@@ -3,11 +3,10 @@
   session_start();
     if(isset($_SESSION['id']))
     {
-        $sql = "SELECT * FROM bookingform
+        $sql = "SELECT COUNT(booking_id) FROM bookingform
                 GROUP BY booking_date"
         $query = mysqli_query($link,$sql);
     };
-
 
     //calendar PHP
     // Set your timezone
