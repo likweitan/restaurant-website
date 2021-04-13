@@ -126,12 +126,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
 
-    <div class="main">
+    <div class="main" style="padding: 0px">
 
         <!-- Sign up form -->
-        <section class="signup">
+        <section class="signup" style="margin-bottom: 0px">
             <div class="container">
-                <div class="signup-content">
+                <div class="signup-content" style="padding: 30px">
                     <div class="signup-form">
 					<h2 style="font-size:40px">Welcome to The Muffin House</h2>
                         <h1 class="form-title">Sign up</h1>
