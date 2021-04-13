@@ -1,6 +1,7 @@
 <?php
   require("../config.php");
   session_start();
+<<<<<<< HEAD
     
 
 
@@ -89,6 +90,14 @@
             $week = '';
         }
     
+=======
+    if(isset($_SESSION['id']))
+    {
+        $sql = "SELECT * FROM bookingform
+                WHERE booking_date >= DATE(CURRENT_TIMESTAMP())
+                ORDER BY booking_create_at DESC";
+        $query = mysqli_query($link,$sql);
+>>>>>>> ef63b94676f220ac5a19fdac771b0c476a4a3138
     }
     
 ?>
@@ -124,28 +133,6 @@
           font-size: 3.5rem;
         }
       }
-    </style>
-
-    <!--Calendar CSS & JS -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-    <style>
-        .calendar {
-            font-family: 'Noto Sans', sans-serif;
-            margin-top: 80px;
-        }
-        .calendar h3 {
-            margin-bottom: 30px;
-        }
-        .calendar th {
-            height: 30px;
-            text-align: center;
-        }
-        .calendar td {
-            height: 100px;
-        }
-        .calendar .today {
-            background: orange;
-        }
     </style>
 
     <!-- Custom styles for this template -->
@@ -206,30 +193,6 @@
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
-        <!--calender test start -->
-        
-        <div class="calendar">
-        <h3><a href="?ym=<?php echo $prev; ?>">&lt;</a> <?php echo $html_title; ?> <a href="?ym=<?php echo $next; ?>">&gt;</a></h3>
-        <table class="table table-bordered">
-            <tr>
-                <th>S</th>
-                <th>M</th>
-                <th>T</th>
-                <th>W</th>
-                <th>T</th>
-                <th>F</th>
-                <th>S</th>
-            </tr>
-            <?php
-                foreach ($weeks as $week) {
-                    echo $week;
-                }
-            ?>
-        </table>
-    </div>
-
-        <!--calender test end -->
       
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">   
         <h1 class="h2">Bookings</h1>
