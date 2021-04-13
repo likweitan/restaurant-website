@@ -1,13 +1,7 @@
 <?php
   require("../config.php");
   session_start();
-    if(isset($_SESSION['id']))
-    {
-        $sql = "SELECT * FROM bookingform
-                #WHERE booking_date >= DATE(CURRENT_TIMESTAMP())
-                ORDER BY booking_create_at DESC";
-        $query = mysqli_query($link,$sql);
-    };
+    
 
 
     //calendar PHP
@@ -30,6 +24,7 @@
     }
     
     // Today
+    
     $today = date('Y-m-j', time());
     
     // For H3 title
@@ -44,7 +39,7 @@
     
     // Number of days in the month
     $day_count = date('t', $timestamp);
-     
+    
     // 0:Sun 1:Mon 2:Tue ...
     $str = date('w', mktime(0, 0, 0, date('m', $timestamp), 1, date('Y', $timestamp)));
     //$str = date('w', $timestamp);
@@ -60,11 +55,23 @@
     for ( $day = 1; $day <= $day_count; $day++, $str++) {
          
         $date = $ym . '-' . $day;
-         
-        if ($today == $date) {
-            $week .= '<td class="today">' . $day;
-        } else {
-            $week .= '<td>' . $day;
+        $sql = "SELECT booking_date,COUNT(booking_id) AS count FROM `bookingform`
+        GROUP BY booking_date";
+        $query = mysqli_query($link,$sql);
+        
+          if ($today == $date) {
+              $week .= '<td class="today">' . $day;
+              
+          } else {
+              $week .= '<td>' . $day;
+              while($row = mysqli_fetch_array($query))
+              {
+              if($date==$row['booking_date']){
+                $week .= '<br><h2>';
+                $week .= $row["count"];
+                $week .= '</h2>';
+            }
+        }
         }
         $week .= '</td>';
          
@@ -171,7 +178,15 @@
   </div>
 
 </header>
-
+<?php
+  if(isset($_SESSION['id']))
+  {
+      $sql = "SELECT * FROM bookingform
+              #WHERE booking_date >= DATE(CURRENT_TIMESTAMP())
+              ORDER BY booking_create_at DESC";
+      $query = mysqli_query($link,$sql);
+  };
+?>
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
