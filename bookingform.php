@@ -164,7 +164,7 @@
             }
             ?>
             </div>
-          <div class="text-center"><button type="submit" name="savecont">Send Message</button></div>
+          <div class="text-center"><button type="submit" name="savecont">Book Now</button></div>
         </form>
       </div>
     </section><!-- End Book A Table Section -->
