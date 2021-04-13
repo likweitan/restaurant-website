@@ -132,13 +132,11 @@
             echo "<td>";
             echo $row['numberPerson'];
             echo "</td>";
-            echo "<td><a href='viewbooking.php?booking_id=";
-            echo $row['booking_id'];
-            echo "'>";
+            echo "<td><a href='#'>";
             echo $row['booking_status'];
             echo "</a>";
             echo "<td>";
-            if($row['booking_status'] != 'cancelled')
+            if($row['booking_status'] == 'pending')
             {
             echo '<form action="cancel_booking.php" method="get">';
             echo '<input hidden type="text" name="booking_id" value=';
@@ -218,10 +216,8 @@ if($query_pass->num_rows > 0){
             echo "<td>";
             echo $row['numberPerson'];
             echo "</td>";
-            echo "<td><a href='viewbooking.php?booking_id=";
-            echo $row['booking_id'];
-            echo "'>";
-            echo $row['booking_status'];
+            echo "<td><a href='#'>";
+            echo 'completed';
             echo "</a></td>";
         echo '</tr>';
 }
