@@ -150,8 +150,24 @@ while($row = mysqli_fetch_array($query))
           echo $row['booking_status'];
           echo "</td>";
           
-          if($row['booking_status']=='cancelled')
+          if($row['booking_status']=='pending')
           {
+            echo "<td>";
+            echo '<form action="approve_booking.php" method="get">';
+            echo '<input hidden type="text" name="booking_id" value=';
+            echo $row['booking_id'];
+            echo '>';
+            echo "<button type='submit' class='btn btn-primary' style='font-size: 12px; width: 75px'>";
+            echo "Approve</button>";
+            echo "</form>";
+            echo "<br>";
+            echo '<form action="cancel_booking.php" method="get">';
+            echo "<button type='submit' class='btn btn-danger' style='font-size: 12px; width: 75px'>";
+            echo "Cancel</button>";
+            echo "</form>";
+            echo "</td>";
+          }
+          else if($row['booking_status']=='cancelled'){
             echo "<td>";
             echo '<form action="approve_booking.php" method="get">';
             echo '<input hidden type="text" name="booking_id" value=';
