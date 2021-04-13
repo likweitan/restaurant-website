@@ -67,7 +67,7 @@
             while($row = mysqli_fetch_array($query))
             {
             if($date==$row['booking_date']){
-              $week .= '<br><h2 style="text-align: center">';
+              $week .= '<br><h2 style="text-align: center; color:red">';
               $week .= $row["count"];
               $week .= '</h2>';
           }
