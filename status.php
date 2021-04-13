@@ -89,9 +89,14 @@
       <div class="container">
       </div>
   </section>
+  <br>
   <div class="container">
-
-  <table class="table table-responsive" style="margin-top: 5em;">
+  <h2>Recent Bookings</h2>
+  <?php  
+  $row = mysqli_fetch_array($query);
+  if($row){
+  echo '
+  <table class="table table-responsive" style="margin-top: 2em;">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -104,10 +109,9 @@
       <th scope="col"></th>
     </tr>
   </thead>
-  <tbody>
-  <?php  
+  <tbody>';
 
-  while($row = mysqli_fetch_array($query))
+  while($row)
   {
     echo "
         <tr>
@@ -151,6 +155,11 @@
             echo "</td>";
         echo '</tr>';
 }
+  }
+  else{
+    echo '<br>';
+    echo '<p>No bookings has been made by you yet.</p>';
+  }
 ?>
   </tbody>
 </table>
@@ -158,28 +167,38 @@
 </div>
 
 <!-- ALREADY PASS TABLE -->
-<section id="book-a-table" class="book-a-table" style="background-color: #35322d">
+<?php  
+$row = mysqli_fetch_array($query_pass);
+if($row){
+  echo '<section id="book-a-table" class="book-a-table" style="background-color: #35322d">
       <div class="container">
+      
       </div>
   </section>
-  <table class="table" style="margin-top: 5em;">
-    <a>Already Pass</a>
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Full Name</th>
-      <th scope="col">Contact Number</th>
-      <th scope="col">Booking Date</th>
-      <th scope="col">Booking Time</th>
-      <th scope="col">Amount of People</th>
-      <th scope="col">Booking Status</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-  <?php  
 
-  while($row = mysqli_fetch_array($query_pass))
+  <div class="container">
+  <br>
+  <h2>Past Bookings</h2>
+<table class="table" style="margin-top: 2em;">
+    
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">Booking Date</th>
+        <th scope="col">Booking Time</th>
+        <th scope="col">Amount of People</th>
+        <th scope="col">Booking Status</th>
+        
+      </tr>
+    </thead>
+    <tbody>';
+}
+  
+
+
+  while($row)
   {
     echo "
         <tr>
@@ -208,10 +227,14 @@
             echo "</a></td>";
         echo '</tr>';
 }
-?>
-  </tbody>
-</table>
 
+if($row){
+  echo '</tbody>
+  </table>';
+}
+  
+?>
+</div>
 
     <!-- ======= Footer ======= -->
   <footer id="footer">
