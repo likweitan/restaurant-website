@@ -185,7 +185,6 @@ if($query_pass->num_rows > 0){
         <th scope="col">Booking Date</th>
         <th scope="col">Booking Time</th>
         <th scope="col">Amount of People</th>
-        <th scope="col">Booking Status</th>
         
       </tr>
     </thead>
@@ -216,9 +215,6 @@ if($query_pass->num_rows > 0){
             echo "<td>";
             echo $row['numberPerson'];
             echo "</td>";
-            echo "<td><a href='#'>";
-            echo 'completed';
-            echo "</a></td>";
         echo '</tr>';
 }
 
