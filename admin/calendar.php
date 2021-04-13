@@ -178,11 +178,11 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link" href="index.php">
               <span data-feather="file"></span>
               Bookings
             </a>
-            <a class="nav-link" href="calendar.php">
+            <a class="nav-link active" href="calendar.php">
               <span data-feather="calendar"></span>
               Calendar
             </a>
