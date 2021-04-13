@@ -113,7 +113,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
 		
-        <section class="sign-in">
+        <section class="sign-in" style="padding:50px">
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
