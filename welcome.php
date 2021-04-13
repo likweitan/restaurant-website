@@ -63,7 +63,7 @@ if(isset($_SESSION['id']))
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start justify-content-between ">
       <i class="bi bi-phone d-flex align-items-center "><span>+06-603 0565</span></i>
       <i class="bi bi-clock ms-4 d-lg-flex align-items-center me-auto"><span>Tue-Sun: 10:00 AM - 22:00 PM</span></i>
-      <?php if($myRole=='admin'){echo '<a  class = "book-a-table-btn bi ms-4 d-lg-flex d-none" href="index.php" style="background: #DC143C;" >go admin</a>';}?>
+      
     </div>
   </section>
   <!-- style="position: absolute; right: 5.5em;" -->
@@ -88,7 +88,7 @@ if(isset($_SESSION['id']))
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+      <?php if($myRole=='admin'){echo '<a  class = "book-a-table-btn bi ms-4 d-lg-flex d-none" href="index.php" style="background: #DC143C;" >Admin Site</a>';}?>
       <a href="bookingform.php" class="book-a-table-btn scrollto">Book a table</a>
 
     </div>
