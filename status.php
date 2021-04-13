@@ -9,7 +9,7 @@
         $query = mysqli_query($link,$sql);
 
         $sql_pass = "SELECT * FROM bookingform
-        WHERE user_id =".$_SESSION['id']." AND booking_date <= DATE(CURRENT_TIMESTAMP())
+        WHERE user_id =".$_SESSION['id']." AND booking_date <= DATE(CURRENT_TIMESTAMP()) AND booking_status = 'approved'
         ORDER BY booking_create_at DESC";
         $query_pass = mysqli_query($link,$sql_pass);      
     }
@@ -132,7 +132,7 @@
             echo "<td>";
             echo $row['numberPerson'];
             echo "</td>";
-            echo "<td><a href='#'>";
+            echo "<td><a style='color:#ffb03b'>";
             echo $row['booking_status'];
             echo "</a>";
             echo "<td>";
