@@ -69,7 +69,7 @@
 
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
-        <a class="nav-link" href="../logout.php">Sign out</a>
+        <a class="nav-link" href="../logout.php">Log out</a>
       </li>
     </ul>
   </div>
