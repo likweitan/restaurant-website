@@ -11,7 +11,18 @@
         $sql_pass = "SELECT * FROM bookingform
         WHERE user_id =".$_SESSION['id']." AND booking_date <= DATE(CURRENT_TIMESTAMP()) AND booking_status = 'approved'
         ORDER BY booking_create_at DESC";
-        $query_pass = mysqli_query($link,$sql_pass);      
+        $query_pass = mysqli_query($link,$sql_pass);     
+        
+        $sql_admin = "SELECT * FROM users
+        WHERE user_id =".$_SESSION['id'];
+        $query_admin = mysqli_query($link,$sql_admin);
+        if($query_admin)
+        {
+        while($row = mysqli_fetch_array($query_admin))
+          {
+            $myRole = $row['role'];
+          }
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -48,8 +59,8 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+  <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent" style="background-color: #35322d">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start justify-content-between">
       <i class="bi bi-phone d-flex align-items-center"><span>+06-603 0565</span></i>
       <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Tue-Sun: 10:00 AM - 22:00 PM</span></i>
 	  
@@ -58,7 +69,7 @@
   </section>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="background-color: #35322d">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div class="logo me-auto">
@@ -78,6 +89,7 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+      <?php if($myRole=='admin'){echo '<a  class = "book-a-table-btn bi ms-4 d-lg-flex d-none" href="index.php" style="background: #DC143C;" >Admin Site</a>';}?>
 
       <a href="bookingform.php" class="book-a-table-btn scrollto">Book a table</a>
 
@@ -85,8 +97,8 @@
   </header><!-- End Header -->
   <!-- Content -->
 
-  <section id="book-a-table" class="book-a-table" style="background-color: #35322d">
-      <div class="container">
+  <section id="book-a-table" class="menu" >
+      <div class="container" style="padding:20px ">
       </div>
   </section>
   <br>
@@ -95,7 +107,7 @@
   <?php 
   if($query->num_rows > 0){
   echo '
-  <table class="table table-responsive" style="margin-top: 2em;">
+  <table class="table table-responsive container-fluid container-xl align-items-center justify-content-between" style="margin-top: 2em; font-size:0.8em">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -166,7 +178,7 @@
 <!-- ALREADY PASS TABLE -->
 <?php
 if($query_pass->num_rows > 0){
-  echo '<section id="book-a-table" class="book-a-table" style="background-color: #35322d">
+  echo '<section id="book-a-table" class="book-a-table d-flex align-items-center" style="background-color: #35322d">
       <div class="container">
       
       </div>

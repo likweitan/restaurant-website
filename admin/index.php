@@ -152,12 +152,12 @@ while($row = mysqli_fetch_array($query))
           
           if($row['booking_status']=='pending')
           {
-            echo "<td>";
+            echo "<td style='display:flex'>";
             echo '<form action="approve_booking.php" method="get">';
             echo '<input hidden type="text" name="booking_id" value=';
             echo $row['booking_id'];
             echo '>';
-            echo "<button type='submit' class='btn btn-primary' style='font-size: 12px; width: 75px'>";
+            echo "<button type='submit' class='btn btn-primary' style='font-size: 12px; width: 75px;'>";
             echo "Approve</button>";
             echo "</form>";
             echo "<br>";

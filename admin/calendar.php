@@ -71,7 +71,7 @@
             while($row = mysqli_fetch_array($query_approved))
             {
               if($date==$row['booking_date']){
-                $week .= '<br><h4 style="text-align: center; color:red">';
+                $week .= '<br><h4 style="text-align: center; color:blue">';
                 $week .= $row["count"];
                 $week .= ' </h4>';
               }
@@ -79,7 +79,7 @@
             while($row = mysqli_fetch_array($query_pending))
             {
               if($date==$row['booking_date']){
-                $week .= '<h4 style="text-align: center; color:blue">';
+                $week .= '<h4 style="text-align: center; color:red">';
                 $week .= $row["count"];
                 $week .= ' </h4>';
               }
@@ -214,6 +214,21 @@
         
         <div class="calendar">
         <h3><a href="?ym=<?php echo $prev; ?>">&lt;</a> <?php echo $html_title; ?> <a href="?ym=<?php echo $next; ?>">&gt;</a></h3>
+        
+        <div style="display: flex;">
+
+          <ul class="navbar-nav">
+            <li class="nav-item text-nowrap">
+              <a class="nav-link" style="color:red">Pending </a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+              <a class="nav-link">Approve</a>
+            </li>
+          </ul>
+        </div>
         <table class="table table-bordered">
             <tr>
                 <th>S</th>
