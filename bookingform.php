@@ -15,6 +15,17 @@
               $user_fullname = $row['user_fullname'];
           }
       }
+      
+      $sql_admin = "SELECT * FROM users
+      WHERE user_id =".$_SESSION['id'];
+      $query_admin = mysqli_query($link,$sql_admin);
+      if($query_admin)
+      {
+      while($row = mysqli_fetch_array($query_admin))
+        {
+          $myRole = $row['role'];
+        }
+      }
   }
 
 ?>
@@ -75,7 +86,7 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+      <?php if($myRole=='admin'){echo '<a  class = "book-a-table-btn bi ms-4 d-lg-flex d-none" href="index.php" style="background: #DC143C;" >Admin Site</a>';}?>
       <a href="bookingform.php" class="book-a-table-btn scrollto" style="margin-right:4em;">Book a table</a>
 
     </div>
