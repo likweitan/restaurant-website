@@ -107,7 +107,8 @@
   <?php 
   if($query->num_rows > 0){
   echo '
-  <table class="table table-responsive container-fluid container-xl align-items-center justify-content-between" style="margin-top: 2em; font-size:0.8em">
+  <div class="table-responsive">
+  <table class="table table-sm " style="margin-top: 2em; font-size:0.8em">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -172,6 +173,7 @@
 ?>
   </tbody>
 </table>
+</div>
 
 </div>
 
@@ -187,6 +189,7 @@ if($query_pass->num_rows > 0){
   <div class="container">
   <br>
   <h2>Past Bookings</h2>
+  <div class="table-responsive">
 <table class="table" style="margin-top: 2em;">
     
     <thead>
@@ -231,7 +234,8 @@ if($query_pass->num_rows > 0){
 }
 
   echo '</tbody>
-  </table>';
+  </table>
+  </div>';
 }
   
 ?>
