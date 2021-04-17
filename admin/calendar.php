@@ -65,6 +65,22 @@
 
         if ($today == $date) {
             $week .= '<td class="today">' . $day;
+            while($row = mysqli_fetch_array($query_approved))
+            {
+              if($date==$row['booking_date']){
+                $week .= '<br><h4 style="text-align: center; color:blue">';
+                $week .= $row["count"];
+                $week .= ' </h4>';
+              }
+            }
+            while($row = mysqli_fetch_array($query_pending))
+            {
+              if($date==$row['booking_date']){
+                $week .= '<h4 style="text-align: center; color:red">';
+                $week .= $row["count"];
+                $week .= ' </h4>';
+              }
+            }
 
         } else {
             $week .= '<td>' . $day;
@@ -219,7 +235,7 @@
 
           <ul class="navbar-nav">
             <li class="nav-item text-nowrap">
-              <a class="nav-link" style="color:red">Pending </a>
+              <a class="nav-link" style="color:orange">Pending </a>
             </li>
           </ul>
 
