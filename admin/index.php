@@ -162,6 +162,9 @@ while($row = mysqli_fetch_array($query))
             echo "</form>";
             echo "<br>";
             echo '<form action="cancel_booking.php" method="get">';
+            echo '<input hidden type="text" name="booking_id" value=';
+            echo $row['booking_id'];
+            echo '>';
             echo "<button type='submit' class='btn btn-danger' style='font-size: 12px; width: 75px'>";
             echo "Cancel</button>";
             echo "</form>";
